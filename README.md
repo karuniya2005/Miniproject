@@ -1,59 +1,53 @@
-## Title of the Project
-Small description about the project like one below
-The integration of a chatbot within a hostel booking system, aimed at streamlining the reservation process for students and improving the overall user experience.
+# Face Attendance Project
 
-## About
-<!--Detailed Description about the project-->
-Tailored Chatbot for Hostel Booking System is a project designed to integrate a chatbot that leverages advanced natural language processing techniques to understand and respond to user queries to the hostel booking system. Traditional hostel booking processes are often time-consuming and involve manual searches and extensive communication with hostel staff. This project seeks to overcome these challenges by creating an easy-to-use chatbot interface that assists students in addressing inquiries.
+This project demonstrates a simple face-recognition based attendance system using Flask, OpenCV, and dlib-based face-recognition.
 
-## Features
-<!--List the features of the project as shown below-->
-- Implements advance neural network method.
-- A framework based application for deployment purpose.
-- High scalability.
-- Less time complexity.
-- A specific scope of Chatbot response model, using json data format.
+## Quick Start (Windows)
 
-## Requirements
-<!--List the requirements of the project as shown below-->
-* Operating System: Requires a 64-bit OS (Windows 10 or Ubuntu) for compatibility with deep learning frameworks.
-* Development Environment: Python 3.6 or later is necessary for coding the sign language detection system.
-* Deep Learning Frameworks: TensorFlow for model training, MediaPipe for hand gesture recognition.
-* Image Processing Libraries: OpenCV is essential for efficient image processing and real-time hand gesture recognition.
-* Version Control: Implementation of Git for collaborative development and effective code management.
-* IDE: Use of VSCode as the Integrated Development Environment for coding, debugging, and version control integration.
-* Additional Dependencies: Includes scikit-learn, TensorFlow (versions 2.4.1), TensorFlow GPU, OpenCV, and Mediapipe for deep learning tasks.
+1. Open PowerShell as Administrator (recommended for installing build tools).
+2. Create and activate a virtual environment:
 
-## System Architecture
-<!--Embed the system architecture diagram as shown below-->
+```powershell
+# Create venv
+python -m venv .venv
+# Activate
+.\.venv\Scripts\Activate
+```
 
-![Screenshot 2023-11-25 133637](https://github.com/<<yourusername>>/Hand-Gesture-Recognition-System/assets/75235455/a60c11f3-0a11-47fb-ac89-755d5f45c995)
+3. Upgrade pip and install dependencies:
 
+```powershell
+python -m pip install --upgrade pip setuptools wheel
+python -m pip install -r face_attendance\requirements.txt
+```
 
-## Output
+Note: Installing `dlib` and `face_recognition` on Windows may require Visual C++ Build Tools and CMake. If you run into compilation errors, see "Troubleshooting" below.
 
-<!--Embed the Output picture at respective places as shown below as shown below-->
-#### Output1 - Name of the output
+4. Run the project:
 
-![Screenshot 2023-11-25 134037](https://github.com/<<yourusername>>/Hand-Gesture-Recognition-System/assets/75235455/8c2b6b5c-5ed2-4ec4-b18e-5b6625402c16)
+```powershell
+python face_attendance\app.py
+```
 
-#### Output2 - Name of the output
-![Screenshot 2023-11-25 134253](https://github.com/<<yourusername>>/Hand-Gesture-Recognition-System/assets/75235455/5e05c981-05ca-4aaa-aea2-d918dcf25cb7)
+Open your browser at http://127.0.0.1:5000
 
-Detection Accuracy: 96.7%
-Note: These metrics can be customized based on your actual performance evaluations.
+---
 
+## Common Issues / Troubleshooting
 
-## Results and Impact
-<!--Give the results and impact as shown below-->
-The Sign Language Detection System enhances accessibility for individuals with hearing and speech impairments, providing a valuable tool for inclusive communication. The project's integration of computer vision and deep learning showcases its potential for intuitive and interactive human-computer interaction.
+- Typo in pip commands: use `pip install -r requirements.txt` **not** `pip upgrad`.
+- Dlib build errors: Install Microsoft Visual C++ Build Tools and CMake:
+  - Install Build Tools: https://visualstudio.microsoft.com/downloads/ (Download "Build Tools for Visual Studio")
+  - From an elevated PowerShell, you can install CMake with pip (`pip install cmake`) or use Chocolatey/installer.
+  - If pip still fails to build dlib, consider installing a prebuilt wheel for your Python version or using conda: `conda install -c conda-forge dlib`.
+- Camera isn't detected: ensure it's plugged in, working, and not in use by other applications. Try other indices for the camera: `cv2.VideoCapture(0)` -> `cv2.VideoCapture(1)`.
+- Port conflicts: If port 5000 is in use, change the port in `face_attendance\app.py` to, e.g., 5001.
+- Face-recognition returns no faces: try collecting clearer images or update `face_recognition.face_locations` parameters.
 
-This project serves as a foundation for future developments in assistive technologies and contributes to creating a more inclusive and accessible digital environment.
+---
 
-## Articles published / References
-1. N. S. Gupta, S. K. Rout, S. Barik, R. R. Kalangi, and B. Swampa, “Enhancing Heart Disease Prediction Accuracy Through Hybrid Machine Learning Methods ”, EAI Endorsed Trans IoT, vol. 10, Mar. 2024.
-2. A. A. BIN ZAINUDDIN, “Enhancing IoT Security: A Synergy of Machine Learning, Artificial Intelligence, and Blockchain”, Data Science Insights, vol. 2, no. 1, Feb. 2024.
+## Helpful Scripts
 
+- `run.ps1` - Set up and start the app (Windows PowerShell) — provided for convenience.
 
-
-
+---
