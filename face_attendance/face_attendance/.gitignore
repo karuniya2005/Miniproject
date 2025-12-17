@@ -1,13 +1,8 @@
-# Virtual Environment
-envi/
-
-# Python cache
 __pycache__/
 *.pyc
-
-# Generated data files
-*.pickle
-
-# In .gitignore
+node_modules/
+attendance_*.csv
 encodings.pickle
-.env
+known_faces/
+.DS_Store
+Thumbs.db
